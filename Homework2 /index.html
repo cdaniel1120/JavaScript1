@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phrase Display</title>
+</head>
+<body>
+    <script>
+        function getMotto() {
+            const motto = prompt("Please enter your favorite motto:");
+            return motto;
+        }
+
+        // Function to prompt the user for the number of times they want to see the motto
+        function getCount() {
+            const countStr = prompt("How many times do you want to see this motto?");
+            const count = parseFloat(countStr);
+            return count;
+        }
+
+        function printMotto(motto, count) {
+            if (isNaN(count) || count <= 0) {
+                console.log("Invalid count. Please enter a valid number.");
+                return;
+            }
+
+            for (let i = 0; i < count; i++) {
+                console.log(motto);
+            }
+        }
+
+        // Call the functions and use their return values
+        const motto = getMotto();
+        const count = getCount();
+
+        if (motto && !isNaN(count)) {
+            printMotto(motto, count);
+        }
+    </script>
+</body>
+</html>
