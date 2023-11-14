@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background-color: green;
+        }
+
+        #animate {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="animate"></div>
+    </div>
+    <button id="animateButton">Animate Me!</button>
+    <script>
+        document.getElementById("animateButton").addEventListener("click", move);
+
+        function move() {
+            let id = null;
+            let elem = document.getElementById("animate");
+            let position = 0;
+            clearInterval(id);
+            id = setInterval(frame, 5);
+
+            function frame() {
+                if (position == 350) {
+                    clearInterval(id);
+                } else {
+                    position++;
+                    elem.style.top = position + "px";
+                    elem.style.left = position + "px";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
